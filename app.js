@@ -7,6 +7,7 @@ var app = express();
 //Definir los routes
 var product_routes = require('./routes/product');
 var twiter_routes = require('./routes/twiter');
+var soap_routes = require('./routes/soap');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -21,6 +22,7 @@ app.use((req, res, next) =>{
 });
 
 app.use('/api', product_routes);
+app.use('/api', soap_routes);
 app.use('/api', twiter_routes);
 
 module.exports = app;
